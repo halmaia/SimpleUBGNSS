@@ -1,12 +1,15 @@
-﻿<Window x:Class="SimpleUBGNSS.MainWindow"
+﻿<Window x:Name="window" x:Class="SimpleUBGNSS.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleUBGNSS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
-
+        <TextBox HorizontalAlignment="Left" Margin="10,10,0,0" Text="{Binding UbxNavPosLLH.Lat, BindsDirectlyToSource=True, ElementName=window, FallbackValue=-9999.0, Mode=OneWay, StringFormat=\{0:F7\}, TargetNullValue=-9999.0, ValidatesOnNotifyDataErrors=False}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,33,0,0" Text="{Binding UbxNavPosLLH.Lon, BindsDirectlyToSource=True, ElementName=window, FallbackValue=-9999.0, Mode=OneWay, StringFormat=\{0:F7\}, TargetNullValue=-9999.0, ValidatesOnNotifyDataErrors=False}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Start" HorizontalAlignment="Left" Margin="148,8,0,0" VerticalAlignment="Top" Click="BtnStart_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,56,0,0" Text="{Binding UbxNavPosLLH.ITow, ElementName=window, FallbackValue=-9999.0, Mode=OneWay, StringFormat=\{0:D\}, TargetNullValue=-9999.0, ValidatesOnNotifyDataErrors=False}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
